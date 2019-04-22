@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Too Cool Marketing</title>
+    <style>
+        body {
+            background: white
+        }
+
+        section {
+            background: white;
+            color: black;
+            border-radius: 1em;
+            padding: 1em;
+            top: 10%;
+            left: 50%;
+        }
+
+        #tableCenterContainer {
+            width: 80%;
+            margin-left: 10%;
+        }
+
+        #map {
+            height: 500px;
+            width: 80%;
+            margin-left: 10%;
+        }
+
+        th, td {
+            text-align: center;
+        }
+
+        #outputDiv {
+            text-align: center;
+        }
+
+        #warning {
+            color: red;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="../js/datatables.min.css" />
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/jquery.csv.js"></script>
+    <script src="../js/datatables.min.js"></script>
+    <script src="../js/affluentzipcodes.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=XXXXXXXXXXXX&callback=initMap"></script>
+</head>
+
+<body>
+    <noscript>If you can see this your browser does not currently allow JavaScript!</noscript>
+    <section>
+        <center><img src="CWDT-LOGO.png" /></center><br /><br />
+        <center>
+            <div id="step1">
+                <h1>Step 1: Choose your "Zip Code Monetary Breakdown" CSV</h1>
+                <input type="file" id="zipCodeCSV" onchange="loadZipCodeCSV(this.files)" /><br />
+            </div>
+            <div id="step2">
+                <h1>Step 2: Enter your desired Zip Code and radius</h1>
+                Zip Code: <input type="text" id="zipCodeInput" /><br />
+                Radius: <input type="text" id="zipCodeRadiusInput" /><br />
+                <input type="button" id="pullZipCodeButton" value="Load Zip Code List" onclick="pullZipCodes()" /><br />
+            </div>
+            <div id="step3">
+                <h1>Step 3: Enter your lowest acceptable Income value</h1>
+                $ <input type="text" id="incomeInput" value="0" /><br />
+                <input type="button" id="incomeInputButton" value="Set Income Limit" onclick="setIncome()" /><br />
+            </div>
+            <div id="step4">
+                <h1>Step 4: Click the button below to load the Table</h1>
+                <input type="button" value="Load Table" id="loadTable" onclick="loadTable()" /><br />
+            </div>
+            <div id="step5">
+                <h1>Step 5: Click the button below to copy the list of Zip Codes</h1>
+                <input type="button" value="Copy Zip Codes" id="zipCodeCopy" onclick="copyToClipboard()" /><br />
+            </div>
+        </center>
+    </section>
+    <br />
+    <br />
+    <br />
+    <div id="outputDiv"></div>
+    <br />
+    <br />
+    <br />
+    <div id="tableCenterContainer">
+        <table id="outputTable" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Zip Codes</th>
+                    <th>Cities to Dissect</th>
+                    <th>County</th>
+                    <th>State</th>
+                    <th>Median Household Income</th>
+                    <th>Mean Income</th>
+                    <th>Per Capita Income</th>
+                    <th>Percent of Households $200,000+</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table><br /><br />
+    </div>
+    <div id="map"></div>
+    <br />
+</body>
+</html>
