@@ -1,5 +1,5 @@
 # Affluent-Zip-Codes
-A web-app that finds Zip Codes based on a User's input and displays them in a Data Table and on a Google Map.
+A webpage that finds Zip Codes based on a User's input and displays them in a Data Table and on a Google Map.
 
 This project requires a proprietary input CSV (not contained in this repo) that contains all possible US Zip Codes and their average incomes. 
 
